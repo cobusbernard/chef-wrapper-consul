@@ -1,3 +1,7 @@
+# 0.1.5
+
+Needs to be the IP not FQDN.
+
 # 0.1.4
 
 Adding in the bind_addr property as Docker adds a 2nd private IP.
