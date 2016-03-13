@@ -29,6 +29,7 @@ instances.sort_by!{ |n| n[:fqdn] }
 instances.map!{ |n| n[:fqdn] }
 
 node.set['consul']['config']['start_join'] = instances
+node.set['consul']['config']['bind_addr'] = node['fqdn']
 
 include_recipe 'consul::default'
 

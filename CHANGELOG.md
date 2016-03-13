@@ -1,3 +1,7 @@
+# 0.1.4
+
+Adding in the bind_addr property as Docker adds a 2nd private IP.
+
 # 0.1.3
 
 Upgrading to v1.4.3 of the Consul cookbook.
