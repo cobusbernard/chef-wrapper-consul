@@ -25,8 +25,8 @@
 #
 
 instances = search(:node, "role:consul-server AND chef_environment:#{node.chef_environment}")
-instances.sort_by!{ |n| n[:hostname] }
-instances.map!{ |n| n[:hostname] }
+instances.sort_by!{ |n| n[:fqdn] }
+instances.map!{ |n| n[:fqdn] }
 
 node.set['consul']['config']['start_join'] = instances
 
