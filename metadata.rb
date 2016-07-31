@@ -4,6 +4,6 @@ maintainer_email 'me@cobus.io'
 license          'MIT'
 description      'Installs/Configures chef-wrapper-consul'
 long_description 'Installs/Configures chef-wrapper-consul'
-version          '0.1.5'
+version          '0.1.6'
 
-depends 'consul', '~> 1.4.3'
+depends 'consul', '~> 2.1.3'

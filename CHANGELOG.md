@@ -1,3 +1,7 @@
+# 0.1.6
+
+Updating to consul `2.1.3` cookbook and pinning the consul version.
+
 # 0.1.5
 
 Needs to be the IP not FQDN.
