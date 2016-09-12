@@ -1,3 +1,7 @@
+# 0.1.7
+
+Fixing the issue with the UI provider being removed.
+
 # 0.1.6
 
 Updating to consul `2.1.3` cookbook and pinning the consul version.

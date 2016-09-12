@@ -24,17 +24,20 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
-instances = search(:node, "role:consul-server AND chef_environment:#{node.chef_environment}")
-instances.sort_by!{ |n| n[:fqdn] }
-instances.map!{ |n| n[:fqdn] }
+instances = node['consul']['master']['instances'].sort
+
+# Check if there are any masters
+if instances.length == 0
+  raise "Please ensure the Consul masters nodes are defined as an array in node['consul']['master']['instances']"
+end
+
+Chef::Log.info("Consul master nodes: #{instances}")
 
 node.set['consul']['config']['start_join'] = instances
-node.set['consul']['config']['bind_addr'] = node['ipaddress']
+node.set['consul']['config']['advertise_addr'] = node['ipaddress']
 
 include_recipe 'consul::default'
 
-consul_ui 'consul-ui' do
-  owner node['consul']['service_user']
-  group node['consul']['service_group']
-  version node['consul']['version']
+consul_installation '0.6.4' do
+  provider :webui
 end
